@@ -106,9 +106,9 @@ fatals AS (
   GROUP BY state_name
 )
 SELECT 
-  f.state_name,
-  p.total_pop,
-  f.total_fatalities,
+  f.state_name AS state_name,
+  p.total_pop AS total_pop,
+  f.total_fatalities AS total_fatalities,
   ROUND(SAFE_DIVIDE(f.total_fatalities, p.total_pop) * 100000, 0) AS fatalities_per_100k
 FROM fatals f
 JOIN pop p
